@@ -4,17 +4,21 @@ function init_matrix () {
     matrix_breite = 8
     strip = neopixel.create(DigitalPin.P0, pixel_anzahl, NeoPixelMode.RGB)
     strip.setMatrixWidth(matrix_breite)
-    strip.setBrightness(255)
+    strip.setBrightness(50)
 }
 input.onButtonPressed(Button.A, function () {
     not_aus = 0
 })
+
+
 function pixel_ein (x: number, y: number) {
     y_korr = Math.abs(x % 2 * 7 - y)
-    strip.setMatrixColor(y_korr, x, neopixel.colors(NeoPixelColors.Red))
+    strip.setMatrixColor(y_korr, x, neopixel.colors(NeoPixelColors.Green))
     strip.show()
     basic.pause(100)
 }
+
+
 input.onButtonPressed(Button.B, function () {
     strip.clear()
 })
@@ -35,13 +39,14 @@ basic.forever(function () {
         strip.clear()
     }
     if (not_aus == 0) {
-        for (let x = 0; x <= matrix_breite - 1; x++) {
-            for (let y = 0; y <= 7; y++) {
+        for (let y = 0; y <= 7; y++) {
+            for (let x = 0; x <= matrix_breite - 1; x++) {
                 pixel_ein(x, y)
             }
-            basic.pause(1000)
-            strip.clear()
-            strip.show()
         }
+        basic.pause(10000)
+        strip.clear()
+        strip.show()
+        
     }
 })
