@@ -38,6 +38,7 @@ init_matrix()
 // serial.writeValue("x", stromverbrauch)
 serial.writeValue("x", NeoPixelColors.Red)
 console.log(NeoPixelColors.Violet);
+basic.showIcon(IconNames.Heart)
 basic.forever(function () {
 	
 })
