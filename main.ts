@@ -1,3 +1,34 @@
+//% color="#AA278D" weight=100
+namespace libBaaxxx {
+    //% block
+    export function helloWorld() {
+        // baa_start()
+    }
+
+    // note that Caml casing yields lower case
+    // block text with spaces
+
+    //% block
+    export function camlCaseTwo() {
+        basic.showNumber(112)
+    }
+    
+    //% block
+    export function ZeigeName() {
+        basic.showString("Bachinger Alois")
+    }
+
+    //% block
+    export function ZeigeDrei() {
+       strip.showColor(neopixel.colors(NeoPixelColors.Blue))
+    }
+
+}
+
+
+
+
+
 function init_matrix () {
     not_aus = 0
     pixel_anzahl = 64
@@ -5,6 +36,7 @@ function init_matrix () {
     strip = neopixel.create(DigitalPin.P0, pixel_anzahl, NeoPixelMode.RGB)
     strip.setMatrixWidth(matrix_breite)
     strip.setBrightness(50)
+    baa_start()
 }
 function baa_start () {
     for (let y = 0; y <= 7; y++) {
@@ -16,9 +48,6 @@ function baa_start () {
     strip.clear()
     strip.show()
 }
-input.onButtonPressed(Button.A, function () {
-    not_aus = 0
-})
 function pixel_ein (x: number, y: number) {
     y_korr = Math.abs(x % 2 * 7 - y)
     strip.setMatrixColor(y_korr, x, neopixel.colors(NeoPixelColors.Green))
@@ -36,9 +65,3 @@ let pixel_anzahl = 0
 let not_aus = 0
 init_matrix()
 // serial.writeValue("x", stromverbrauch)
-serial.writeValue("x", NeoPixelColors.Red)
-console.log(NeoPixelColors.Violet);
-basic.showIcon(IconNames.Heart)
-basic.forever(function () {
-	
-})
