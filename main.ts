@@ -9,16 +9,12 @@ function init_matrix () {
 input.onButtonPressed(Button.A, function () {
     not_aus = 0
 })
-
-
 function pixel_ein (x: number, y: number) {
     y_korr = Math.abs(x % 2 * 7 - y)
     strip.setMatrixColor(y_korr, x, neopixel.colors(NeoPixelColors.Green))
     strip.show()
     basic.pause(100)
 }
-
-
 input.onButtonPressed(Button.B, function () {
     strip.clear()
 })
@@ -37,6 +33,7 @@ basic.forever(function () {
     if (stromverbrauch > 45) {
         not_aus = 1
         strip.clear()
+        strip.show()
     }
     if (not_aus == 0) {
         for (let y = 0; y <= 7; y++) {
@@ -47,6 +44,5 @@ basic.forever(function () {
         basic.pause(10000)
         strip.clear()
         strip.show()
-        
     }
 })
