@@ -11,7 +11,7 @@ input.onButtonPressed(Button.A, function () {
 })
 function pixel_ein (x: number, y: number) {
     y_korr = Math.abs(x % 2 * 7 - y)
-    null.setMatrixColor(y_korr, x, neopixel.colors(NeoPixelColors.Red))
+    strip.setMatrixColor(y_korr, x, neopixel.colors(NeoPixelColors.Red))
     strip.show()
     basic.pause(100)
 }
