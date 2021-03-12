@@ -1,34 +1,3 @@
-//% color="#AA278D" weight=100
-namespace boxNeopixel {
-    //% block
-    export function helloWorld() {
-        baa_start()
-    }
-
-    // note that Caml casing yields lower case
-    // block text with spaces
-
-    //% block
-    export function gelb() {
-       strip.showColor(neopixel.colors(NeoPixelColors.Yellow))
-    }
-    
-    //% block
-    export function ZeigeName() {
-        basic.showString("Bachinger Alois")
-    }
-
-    //% block
-    export function ZeigeDrei() {
-       strip.showColor(neopixel.colors(NeoPixelColors.Blue))
-    }
-
-}
-
-
-
-
-
 function init_matrix () {
     not_aus = 0
     pixel_anzahl = 64
@@ -58,10 +27,37 @@ input.onButtonPressed(Button.B, function () {
     strip.clear()
     strip.show()
 })
+/**
+ * serial.writeValue("x", stromverbrauch)
+ */
 let y_korr = 0
-let strip: neopixel.Strip = null
 let matrix_breite = 0
 let pixel_anzahl = 0
 let not_aus = 0
+let strip: neopixel.Strip = null
+namespace baaNeop {
+    //% block
+    export function helloWorld() {
+        baa_start()
+    }
+
+    // note that Caml casing yields lower case
+    // block text with spaces
+
+    //% block
+    export function camlCaseTwo() {
+        basic.showNumber(112)
+    }
+    
+    //% block
+    export function ZeigeName() {
+        basic.showString("Bachinger Alois")
+    }
+
+    //% block
+    export function ZeigeDrei() {
+       strip.showColor(neopixel.colors(NeoPixelColors.Blue))
+    }
+
+}
 init_matrix()
-// serial.writeValue("x", stromverbrauch)
