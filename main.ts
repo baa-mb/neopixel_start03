@@ -6,6 +6,16 @@ function init_matrix () {
     strip.setMatrixWidth(matrix_breite)
     strip.setBrightness(50)
 }
+function baa_start () {
+    for (let y = 0; y <= 7; y++) {
+        for (let x = 0; x <= matrix_breite - 1; x++) {
+            pixel_ein(x, y)
+        }
+    }
+    basic.pause(5000)
+    strip.clear()
+    strip.show()
+}
 input.onButtonPressed(Button.A, function () {
     not_aus = 0
 })
@@ -18,7 +28,6 @@ function pixel_ein (x: number, y: number) {
 input.onButtonPressed(Button.B, function () {
     strip.clear()
 })
-let stromverbrauch = 0
 let y_korr = 0
 let strip: neopixel.Strip = null
 let matrix_breite = 0
@@ -29,20 +38,5 @@ init_matrix()
 serial.writeValue("x", NeoPixelColors.Red)
 console.log(NeoPixelColors.Violet);
 basic.forever(function () {
-    stromverbrauch = strip.power()
-    if (stromverbrauch > 45) {
-        not_aus = 1
-        strip.clear()
-        strip.show()
-    }
-    if (not_aus == 0) {
-        for (let y = 0; y <= 7; y++) {
-            for (let x = 0; x <= matrix_breite - 1; x++) {
-                pixel_ein(x, y)
-            }
-        }
-        basic.pause(10000)
-        strip.clear()
-        strip.show()
-    }
+	
 })
