@@ -1,16 +1,16 @@
 //% color="#AA278D" weight=100
-namespace libBaaxxx {
+namespace boxNeopixel {
     //% block
     export function helloWorld() {
-        // baa_start()
+        baa_start()
     }
 
     // note that Caml casing yields lower case
     // block text with spaces
 
     //% block
-    export function camlCaseTwo() {
-        basic.showNumber(112)
+    export function gelb() {
+       strip.showColor(neopixel.colors(NeoPixelColors.Yellow))
     }
     
     //% block
