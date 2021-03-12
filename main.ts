@@ -27,6 +27,7 @@ function pixel_ein (x: number, y: number) {
 }
 input.onButtonPressed(Button.B, function () {
     strip.clear()
+    strip.show()
 })
 let y_korr = 0
 let strip: neopixel.Strip = null
